@@ -145,6 +145,14 @@ jobs:
           # 可选值: tencent, akshare_sina, efinance, akshare_em, tushare
           # 如果有 Tushare Pro 高积分账号，可将 tushare 放在首位
           REALTIME_SOURCE_PRIORITY: ${{ vars.REALTIME_SOURCE_PRIORITY || 'tencent,akshare_sina,efinance,akshare_em' }}
+          # 基本面/估值增强开关
+          FUNDAMENTALS_ENABLED: ${{ vars.FUNDAMENTALS_ENABLED || 'true' }}
+          VALUATION_ENABLED: ${{ vars.VALUATION_ENABLED || 'true' }}
+          FORECAST_ENABLED: ${{ vars.FORECAST_ENABLED || 'true' }}
+          # 拉取周期（用于区间涨跌、5y PE）
+          HISTORY_DAYS_FOR_RETURN: ${{ vars.HISTORY_DAYS_FOR_RETURN || '520' }}   # ~2年日历，够1年交易日
+          PE_HISTORY_YEARS: ${{ vars.PE_HISTORY_YEARS || '5' }}
+
           
         run: |
           # 判断运行模式
